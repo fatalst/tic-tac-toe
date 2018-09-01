@@ -1,1 +1,4 @@
-# tic-tac-toe
+# Tic Tac Toe
+
+## Functional Requirements
+1. Create 
