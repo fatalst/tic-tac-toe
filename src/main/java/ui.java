@@ -1,6 +1,5 @@
-package java;
+package src.main.java;
+
 import java.util.*;
 
-public class UI{
-	
-}
+public class UI {}
