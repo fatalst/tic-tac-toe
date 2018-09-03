@@ -21,7 +21,7 @@ public class Main {
 			System.out.println("Player One, Please enter your username.");
 			player1 = sc.nextLine(); //sets input to player1
 		}while(player1.isEmpty()); //loops until user enters a username for player
-		//could change to allow only a certain # of retry attempts before closing scanner and using
+		//could change to allow only a certain number of retry attempts before closing scanner and using
         //default name
 		return player1;
 	}
@@ -32,7 +32,7 @@ public class Main {
 			System.out.println("Player Two, Please enter your username.");
 			player2 = sc.nextLine(); //sets input to player2
 		}while(player2.isEmpty()); //loops until user enters a username for player2
-		//could change to allow only a certain # of retry attempts before closing scanner and using
+		//could change to allow only a certain number of retry attempts before closing scanner and using
         //default name
 		return player2;
 	}
