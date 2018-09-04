@@ -14,26 +14,30 @@ public class Main {
 
 	player1 = Main.getPlayerOne(player1); //sets player1 to the first players specified username
 	player2 = Main.getPlayerTwo(player2); //sets player2 to the second players specified username
-}
-	private static String getPlayerOne(String player1){
-		Scanner sc = new Scanner(System.in); //opens scanner for user input
-		do{
-			System.out.println("Player One, Please enter your username.");
-			player1 = sc.nextLine(); //sets input to player1
-		}while(player1.isEmpty()); //loops until user enters a username for player
-		//could change to allow only a certain number of retry attempts before closing scanner and using
-        //default name
-		return player1;
-	}
+  }
+  private static String getPlayerOne(String player1){
+  	Scanner sc = new Scanner(System.in); //opens scanner for user input
+	  int count = 0; //counts how many time user enters null username
+	  do{
+	  	System.out.println("Player One, Please enter your username.");
+	  	player1 = sc.nextLine(); //sets input to player1
+		  count++;
+	  }while(player1.isEmpty() && count < 3); //loops 3 times for user to enter a username
 
-	private static String getPlayerTwo(String player2){
-		Scanner sc = new Scanner(System.in); //opens scanner for user input
-		do{
-			System.out.println("Player Two, Please enter your username.");
-			player2 = sc.nextLine(); //sets input to player2
-		}while(player2.isEmpty()); //loops until user enters a username for player2
-		//could change to allow only a certain number of retry attempts before closing scanner and using
-        //default name
-		return player2;
+	  if(!player1.isEmpty()) return player1; //sets username to given input
+	  else return "Player 1"; //sets username to default username
+  }
+
+  private static String getPlayerTwo(String player2){
+  	Scanner sc = new Scanner(System.in); //opens scanner for user input
+	  int count = 0; //counts how many time user enters null username
+	  do{
+	  	System.out.println("Player Two, Please enter your username.");
+	  	player2 = sc.nextLine(); //sets input to player2
+		  count++;
+	  }while(player2.isEmpty() && count < 3); //loops 3 time for user to enter a username
+
+	  if(!player2.isEmpty()) return player2; //sets username to given input
+	  return "Player 2"; //sets username to default username
 	}
 }
