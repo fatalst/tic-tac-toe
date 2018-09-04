@@ -12,3 +12,7 @@ target/
 
 # Mac files
 *.DS_Store
+
+# IDEA files
+.idea/
+*.iml
