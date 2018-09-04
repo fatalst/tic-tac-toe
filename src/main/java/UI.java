@@ -19,6 +19,7 @@ public class UI {
   }
 
   public void printBoard() {
+  	System.out.println("");
     System.out.println("-------------"); // creates top boarder
     for (int i = 0; i < 3; i++) {
       System.out.print("| "); // creates left boarder

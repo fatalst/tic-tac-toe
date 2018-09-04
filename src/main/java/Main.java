@@ -18,13 +18,24 @@ public class Main {
 
     player1 = Main.getPlayerOne(player1); // sets player1 to the first players specified username
     player2 = Main.getPlayerTwo(player2); // sets player2 to the second players specified username
+
+    UI ui = new UI(); // creates new UI object
+    ui.createBoard(); // fills the board with blanks
+    ui.printBoard(); // initially prints the board
+
+    System.out.println("");
+    System.out.println(player1 + ", you are Xs.");
+    System.out.println(player2 + ", you are Os.");
+
+    Main.takeInput(player1, player2, p1_playing);
+
   }
 
   private static String getPlayerOne(String player1) {
     Scanner sc = new Scanner(System.in); // opens scanner for user input
     int count = 0; // counts how many time user enters null username
     do {
-      System.out.println("Player One, Please enter your username.");
+      System.out.print("Player One, please enter your username: ");
       player1 = sc.nextLine(); // sets input to player1
       count++;
     } while (player1.isEmpty() && count < 3); // loops 3 times for user to enter a username
@@ -37,7 +48,7 @@ public class Main {
     Scanner sc = new Scanner(System.in); // opens scanner for user input
     int count = 0; // counts how many time user enters null username
     do {
-      System.out.println("Player Two, Please enter your username.");
+      System.out.print("Player Two, please enter your username: ");
       player2 = sc.nextLine(); // sets input to player2
       count++;
     } while (player2.isEmpty() && count < 3); // loops 3 time for user to enter a username
@@ -45,4 +56,27 @@ public class Main {
     if (!player2.isEmpty()) return player2; // sets username to given input
     return "Player 2"; // sets username to default username
   }
+
+  private static void takeInput(String player1, String player2, boolean p1_playing){
+  	System.out.println("");
+  	Scanner sc = new Scanner(System.in); // initializes the Scanner
+  	String name;
+
+  	if (p1_playing == true){
+  		name = player1;
+  	} else{
+  		name = player2;
+  	}
+
+  	System.out.println(name + ", it is your turn.");
+  	System.out.println("");
+  	System.out.print("Choose a coordinate on the x axis: ");
+  	int x = Integer.parseInt(sc.nextLine()); // sets x coordinate to player input
+  	System.out.print("Choose a coordinate on the y axis: ");
+  	int y = Integer.parseInt(sc.nextLine()); // sets y coordinate to player input
+
+  	System.out.println("X: " + x + " / Y: " + y); // for testing purposes
+
+  }
+
 }
