@@ -4,31 +4,20 @@ import java.util.*;
 import java.util.Scanner;
 
 public class Main {
-  public static void main(final String[] args) throws InterruptedException {
-    UI ui = new UI(); // creates new UI object
 
-    int rounds = 0; // integer to count the number of rounds
-
-    // player information
-    String player1 = "Player 1"; // String holding the name/username of player 1
-    player1 = Main.getPlayerOne(player1); // sets player1 to the first players specified username
-    String player2 = "Player 2"; // String holding the name/username of player 2
-    player2 = Main.getPlayerTwo(player2); // sets player2 to the second players specified username
-    boolean game =
-        true; // boolean tracking if the game is currently being played or not (used for looping)
-    boolean p1_playing =
-        true; // using a boolean to track which player's turn it is (player 1 = true, player 2 =
+  private static int rounds; // integer to count the number of rounds
+  private static boolean game; // boolean tracking if the game is currently being played or not (used for looping)
+  private static boolean p1_playing; // using a boolean to track which player's turn it is (player 1 = true, player 2 =
     // false)
-    System.out.println("");
-    System.out.println(player1 + ", you are Xs.");
-    System.out.println(player2 + ", you are Os.");
 
-    // Main.takeInput(player1, player2, p1_playing);
+  private static String player1;
+  private static String player2;
+  private static UI ui = new UI(); // creates new UI object
 
-    
-    // start game
-    ui.createBoard(); // fills the board with blanks
-    ui.printBoard(); // initially prints the board
+  public static void main(final String[] args) throws InterruptedException {
+    Scanner sc = new Scanner(System.in); // opens scanner for user input
+
+    Main.startGame();
 
     do {
       char marker = ui.getPlayerMarker(); // keep track of whose turn
@@ -53,10 +42,43 @@ public class Main {
 
       ui.changePlayer(); // alternate turn and player mark
     } while (game == true);
-    // TODO: option for rematch
     
+    // TODO: option for rematch -> started, doesn't seem to work at the moment.
+    
+   	/* System.out.println("Play again? Y/N");
+    String response = sc.nextLine();
+    if(response == "Y" || response == "y"){
+    	ui.clear();
+    	Main.startGame();
+    } */
 
   }
+
+  private static void startGame(){
+	rounds = 0; // integer to count the number of rounds
+
+    // player information
+    player1 = "Player 1"; // String holding the name/username of player 1
+    player1 = Main.getPlayerOne(player1); // sets player1 to the first players specified username
+    player2 = "Player 2"; // String holding the name/username of player 2
+    player2 = Main.getPlayerTwo(player2); // sets player2 to the second players specified username
+    game =
+        true; // boolean tracking if the game is currently being played or not (used for looping)
+    p1_playing =
+        true; // using a boolean to track which player's turn it is (player 1 = true, player 2 =
+    // false)
+    System.out.println("");
+    System.out.println(player1 + ", you are Xs.");
+    System.out.println(player2 + ", you are Os.");
+
+    // Main.takeInput(player1, player2, p1_playing);
+
+    
+    // start game
+    ui.createBoard(); // fills the board with blanks
+    ui.printBoard(); // initially prints the board
+  }
+
   private static String getPlayerOne(String player1) {
     Scanner sc = new Scanner(System.in); // opens scanner for user input
     int count = 0; // counts how many time user enters null username

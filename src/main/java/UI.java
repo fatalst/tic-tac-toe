@@ -13,6 +13,12 @@ public class UI {
     createBoard();
   }
 
+  public void clear(){
+    gameBoard = new char[3][3];
+    currentPlayerMark = 'X'; // makes player1 X
+    createBoard();
+  }
+
   public void createBoard() {
     for (int i = 0; i < 3; i++) { // loops through rows
       for (int j = 0; j < 3; j++) { // loops through columns
