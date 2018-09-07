@@ -13,10 +13,6 @@ public class UI {
     createBoard();
   }
 
-  public void reset(){
-    currentPlayerMark = 'X'; // makes player1 X
-  }
-
   public void createBoard() {
     for (int i = 0; i < 3; i++) { // loops through rows
       for (int j = 0; j < 3; j++) { // loops through columns
@@ -25,21 +21,17 @@ public class UI {
     }
   }
 
-  // added visual coordinates to make things easier for user input.
   public void printBoard() {
-    int num = 0;
     System.out.println("");
-    System.out.println(". 0 . . 1 . . 2"); // adding coordinates to the top. '.'s are placeholders for whitespace.
-    System.out.println(". -------------"); // creates top boarder
+    System.out.println("-------------"); // creates top boarder
     for (int i = 0; i < 3; i++) {
-      System.out.print(num + " | "); // creates left boarder
-      num++; // adding coordinates to the side
+      System.out.print("| "); // creates left boarder
       for (int j = 0; j < 3; j++) {
         // creates boarders between columns + right boarder
         System.out.print(gameBoard[i][j] + " | ");
       }
       System.out.println();
-      System.out.println(". -------------"); // creates boarders between rows + bottom boarder
+      System.out.println("-------------"); // creates boarders between rows + bottom boarder
     }
   }
 
@@ -76,54 +68,4 @@ public class UI {
     }
     return false;
   }
-
-  // checking the endings.  not tested yet.
-
-
-  /*public int checkEnding(){
-    // checks to see if there is a draw
-    if(ui.checkWinner()){
-      return true;
-    }
-    int counter = 0;
-    for (int i = 0; i < 3; i++) { // loops through rows
-      for (int j = 0; j < 3; j++) { // loops through columns
-        if(counter == 9){
-          return true;
-        }else if(gameBoard[i][j] == ' '){
-          counter++;
-        }
-      }
-    }
-    return false;
-  }
-
-  // very much in progress
-
-  public boolean checkWinner(){
-    ArrayList<Character> board = new ArrayList<>();
-    for (int i = 0; i < 3; i++) { // loops through rows
-      for (int j = 0; j < 3; j++) { // loops through columns
-        if(gameBoard[i][j] == 'X'){
-          board.add('X');
-        } else if(gameBoard[i][j] == 'O'){
-          board.add('O');
-        }
-      }
-    }
-    int xCount = 0;
-    int oCount = 0;
-    for(int k = 0; k < board.size(); k++){
-      if(xCount > )
-      if(k <= 3){
-
-      }
-      if(board.get(k) == 'X'){
-        xCount++;
-      } else{
-        oCount++;
-      }
-    }
-  } */
-
 }
