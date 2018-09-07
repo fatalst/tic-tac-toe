@@ -11,13 +11,15 @@ Compile the code with `javac src/main/java/Main.java`.
 Run the code with `java src.main.java.Main`.
 
 ## Functional Requirements
-- Gather and display user names. Decide who makes the first move (assign the X mark). (x)
-- Display a proper board. (x)
-- Take turns letting the players move. (x)
+- MANDATORY:
+	- Gather and display user names. Decide who makes the first move (assign the X mark). (x)
+	- Display a proper board. (x)
+	- Take turns letting the players move. (x)
 	- Detect and announce when one wins.
-	- Prevent illegal moves.
-	- Indicate a draw.
-- When the game is over, give the same players a chance to play again.
+		- Prevent illegal moves.
+		- Indicate a draw.
+- OPTIONAL:
+	- When the game is over, give the same players a chance to play again.
 
 
 ## To Do
