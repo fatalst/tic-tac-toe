@@ -13,12 +13,12 @@ public class UI {
     createBoard();
   }
 
-  public void reset(){
+  public void reset() {
     currentPlayerMark = 'X'; // makes player1 X
   }
 
   public void createBoard() {
-    for (int i = 0; i < 3; i++) { // loops through rows
+    for (int i = 2; i >= 0; i--) { // loops through rows
       for (int j = 0; j < 3; j++) { // loops through columns
         gameBoard[i][j] = ' '; // fills board with blank spaces
       }
@@ -27,13 +27,14 @@ public class UI {
 
   // added visual coordinates to make things easier for user input.
   public void printBoard() {
-    int num = 0;
+    int num = 2;
     System.out.println("");
-    System.out.println(". 0 . . 1 . . 2"); // adding coordinates to the top. '.'s are placeholders for whitespace.
+    System.out.println(
+        ". 0. . 1 . . 2"); // adding coordinates to the top. '.'s are placeholders for whitespace.
     System.out.println(". -------------"); // creates top boarder
-    for (int i = 0; i < 3; i++) {
+    for (int i = 2; i >= 0; i--) {
       System.out.print(num + " | "); // creates left boarder
-      num++; // adding coordinates to the side
+      num--; // adding coordinates to the side
       for (int j = 0; j < 3; j++) {
         // creates boarders between columns + right boarder
         System.out.print(gameBoard[i][j] + " | ");
@@ -78,7 +79,6 @@ public class UI {
   }
 
   // checking the endings.  not tested yet.
-
 
   /*public int checkEnding(){
     // checks to see if there is a draw
