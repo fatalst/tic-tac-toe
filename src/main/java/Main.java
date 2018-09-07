@@ -25,7 +25,7 @@ public class Main {
 
     Main.takeInput(player1, player2, p1_playing);
 
-    /*
+    
     // start game
     ui.createBoard(); // fills the board with blanks
     ui.printBoard(); // initially prints the board
@@ -44,11 +44,17 @@ public class Main {
       ui.printBoard(); // prints board with added mark for current update of game
 
       // TODO check for winner, if winner game == false to quit game
+      /* String winner = "";
+      if (ui.checkEnding() == 1){
+      	game == false;
+      	winner = ui.checkWinningPlayer();
+      	System.out.println(winner + " wins!");
+      } */
 
       ui.changePlayer(); // alternate turn and player mark
     } while (game == true);
     // TODO: option for rematch
-    */
+    
 
   }
   private static String getPlayerOne(String player1) {
@@ -77,31 +83,33 @@ public class Main {
     return "Player 2"; // sets username to default username
   }
 
-  public static void takeInput(String player1, String player2, boolean p1_playing) {
-    System.out.println("");
-    Scanner sc = new Scanner(System.in); // initializes the Scanner
-    String name;
+  // public static void takeInput(String player1, String player2, boolean p1_playing) {
+  //   System.out.println("");
+  //   Scanner sc = new Scanner(System.in); // initializes the Scanner
+  //   String name;
 
-    if (p1_playing == true) {
-      name = player1;
-    } else {
-      name = player2;
-    }
+  //   if (p1_playing == true) {
+  //     name = player1;
+  //   } else {
+  //     name = player2;
+  //   }
 
-    System.out.println(name + ", it is your turn.");
-    System.out.println("");
-    System.out.print("Choose a coordinate on the x axis: ");
-    int x = Integer.parseInt(sc.nextLine()); // sets x coordinate to player input
-    System.out.print("Choose a coordinate on the y axis: ");
-    int y = Integer.parseInt(sc.nextLine()); // sets y coordinate to player input
+  //   System.out.println(name + ", it is your turn.");
+  //   System.out.println("");
+  //   System.out.print("Choose a coordinate on the x axis: ");
+  //   int x = Integer.parseInt(sc.nextLine()); // sets x coordinate to player input
+  //   System.out.print("Choose a coordinate on the y axis: ");
+  //   int y = Integer.parseInt(sc.nextLine()); // sets y coordinate to player input
 
-    System.out.println("X: " + x + " / Y: " + y); // for testing purposes
-  }
+  //   System.out.println("X: " + x + " / Y: " + y); // for testing purposes
+  // }
 
-  /*
-  I split up gewtting the row and col coordinates so we could use the return values in the main
-  method I couldn't figure out ho to do it from the takeInput method. Feel free to deletes these
-  if you know how/ had something else in mind
+  
+  // I split up gewtting the row and col coordinates so we could use the return values in the main
+  // method I couldn't figure out ho to do it from the takeInput method. Feel free to deletes these
+  // if you know how/ had something else in mind
+
+  // we can go with these, it makes things easier.
 
   public static int getRow(String player1, String player2, char marker) {
     System.out.println("");
@@ -127,6 +135,6 @@ public class Main {
 
     return col;
   }
-  */
+  
 
 }

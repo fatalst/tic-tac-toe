@@ -68,4 +68,54 @@ public class UI {
     }
     return false;
   }
+
+  // checking the endings.  not tested yet.
+
+
+  /*public int checkEnding(){
+    // checks to see if there is a draw
+    if(ui.checkWinner()){
+      return true;
+    }
+    int counter = 0;
+    for (int i = 0; i < 3; i++) { // loops through rows
+      for (int j = 0; j < 3; j++) { // loops through columns
+        if(counter == 9){
+          return true;
+        }else if(gameBoard[i][j] == ' '){
+          counter++;
+        }
+      }
+    }
+    return false;
+  }
+
+  // very much in progress
+
+  public boolean checkWinner(){
+    ArrayList<Character> board = new ArrayList<>();
+    for (int i = 0; i < 3; i++) { // loops through rows
+      for (int j = 0; j < 3; j++) { // loops through columns
+        if(gameBoard[i][j] == 'X'){
+          board.add('X');
+        } else if(gameBoard[i][j] == 'O'){
+          board.add('O');
+        }
+      }
+    }
+    int xCount = 0;
+    int oCount = 0;
+    for(int k = 0; k < board.size(); k++){
+      if(xCount > )
+      if(k <= 3){
+
+      }
+      if(board.get(k) == 'X'){
+        xCount++;
+      } else{
+        oCount++;
+      }
+    }
+  } */
+
 }
