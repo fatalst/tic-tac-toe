@@ -19,6 +19,8 @@ public class Main {
 
     Main.startGame();
 
+    boolean validResponse;
+
     do {
       char marker = ui.getPlayerMarker(); // keep track of whose turn
 
@@ -29,8 +31,17 @@ public class Main {
       System.out.println(
           "Your coordinates are: " + row + ", " + col); // mostly for testing but could keep in
 
-      ui.placeMark(row, col); // places mark on the board
+      validResponse = ui.placeMark(row, col); // returns if the response is valid or not; if valid, places mark on the board
+      
+      // checking if the input is out of bounds
+      if(validResponse == false){
+      	System.out.println("That is an invalid set of coordinates.  Please try again.");
+      	continue;
+      }
+      
       ui.printBoard(); // prints board with added mark for current update of game
+
+      rounds++;
 
       // TODO check for winner, if winner game == false to quit game
       /* String winner = "";
@@ -40,17 +51,24 @@ public class Main {
       	System.out.println(winner + " wins!");
       } */
 
+      // assuming wrong answers are impossible AND if someone wins, the game ends -- ends the game on a draw.
+      if(rounds == 9){
+      	System.out.println("");
+      	System.out.println("Draw!");
+      	game = false;
+      }
+
       ui.changePlayer(); // alternate turn and player mark
     } while (game == true);
     
     // TODO: option for rematch -> started, doesn't seem to work at the moment.
     
-   	/* System.out.println("Play again? Y/N");
+   	System.out.println("Play again? (Y/N)");
     String response = sc.nextLine();
     if(response == "Y" || response == "y"){
-    	ui.clear();
+    	ui.reset();
     	Main.startGame();
-    } */
+    } 
 
   }
 

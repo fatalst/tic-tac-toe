@@ -13,10 +13,8 @@ public class UI {
     createBoard();
   }
 
-  public void clear(){
-    gameBoard = new char[3][3];
+  public void reset(){
     currentPlayerMark = 'X'; // makes player1 X
-    createBoard();
   }
 
   public void createBoard() {

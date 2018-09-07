@@ -7,12 +7,13 @@ First cd into the file tic-tac-toe. Then run `gradle build`.  If you recieve an 
 Then run `gradle run` to have the program run.
 
 ### Java
-Run `java -classpath . src.main.java.Main` OR `java src.main.java.Main`.
+Compile the code with `javac src/main/java/Main.java`.
+Run the code with `java src.main.java.Main`.
 
 ## Functional Requirements
-- Gather and display user names. Decide who makes the first move (assign the X mark).
-- Display a proper board.
-- Take turns letting the players move.
+- Gather and display user names. Decide who makes the first move (assign the X mark). (x)
+- Display a proper board. (x)
+- Take turns letting the players move. (x)
 	- Detect and announce when one wins.
 	- Prevent illegal moves.
 	- Indicate a draw.
