@@ -23,7 +23,7 @@ public class Main {
     System.out.println(player1 + ", you are Xs.");
     System.out.println(player2 + ", you are Os.");
 
-    Main.takeInput(player1, player2, p1_playing);
+    // Main.takeInput(player1, player2, p1_playing);
 
     
     // start game

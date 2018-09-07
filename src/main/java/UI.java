@@ -21,17 +21,21 @@ public class UI {
     }
   }
 
+  // added visual coordinates to make things easier for user input.
   public void printBoard() {
+    int num = 0;
     System.out.println("");
-    System.out.println("-------------"); // creates top boarder
+    System.out.println(". 0 . . 1 . . 2"); // adding coordinates to the top. '.'s are placeholders for whitespace.
+    System.out.println(". -------------"); // creates top boarder
     for (int i = 0; i < 3; i++) {
-      System.out.print("| "); // creates left boarder
+      System.out.print(num + " | "); // creates left boarder
+      num++; // adding coordinates to the side
       for (int j = 0; j < 3; j++) {
         // creates boarders between columns + right boarder
         System.out.print(gameBoard[i][j] + " | ");
       }
       System.out.println();
-      System.out.println("-------------"); // creates boarders between rows + bottom boarder
+      System.out.println(". -------------"); // creates boarders between rows + bottom boarder
     }
   }
 
