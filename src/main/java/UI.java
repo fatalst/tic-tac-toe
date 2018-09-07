@@ -80,22 +80,8 @@ public class UI {
   // checking the endings.  not tested yet.
 
 
-  /*public int checkEnding(){
-    // checks to see if there is a draw
-    if(ui.checkWinner()){
-      return true;
-    }
-    int counter = 0;
-    for (int i = 0; i < 3; i++) { // loops through rows
-      for (int j = 0; j < 3; j++) { // loops through columns
-        if(counter == 9){
-          return true;
-        }else if(gameBoard[i][j] == ' '){
-          counter++;
-        }
-      }
-    }
-    return false;
+  public int checkEnding(){
+    
   }
 
   // very much in progress
@@ -124,6 +110,6 @@ public class UI {
         oCount++;
       }
     }
-  } */
+  }
 
 }
