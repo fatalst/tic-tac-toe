@@ -126,34 +126,33 @@ public class Main {
 	return "Player 2"; // sets username to default username
   }
 
-  // public static void takeInput(String player1, String player2, boolean p1_playing) {
-  //   System.out.println("");
-  //   Scanner sc = new Scanner(System.in); // initializes the Scanner
-  //   String name;
+  /*
+  public static void takeInput(String player1, String player2, boolean p1_playing) {
+    System.out.println("");
+    Scanner sc = new Scanner(System.in); // initializes the Scanner
+    String name;
 
-  //   if (p1_playing == true) {
-  //     name = player1;
-  //   } else {
-  //     name = player2;
-  //   }
+    if (p1_playing == true) {
+      name = player1;
+    } else {
+      name = player2;
+    }
 
-  //   System.out.println(name + ", it is your turn.");
-  //   System.out.println("");
-  //   System.out.print("Choose a coordinate on the x axis: ");
-  //   int x = Integer.parseInt(sc.nextLine()); // sets x coordinate to player input
-  //   System.out.print("Choose a coordinate on the y axis: ");
-  //   int y = Integer.parseInt(sc.nextLine()); // sets y coordinate to player input
+    System.out.println(name + ", it is your turn.");
+    System.out.println("");
+    System.out.print("Choose a coordinate on the x axis: ");
+    int x = Integer.parseInt(sc.nextLine()); // sets x coordinate to player input
+    System.out.print("Choose a coordinate on the y axis: ");
+    int y = Integer.parseInt(sc.nextLine()); // sets y coordinate to player input
 
-  //   System.out.println("X: " + x + " / Y: " + y); // for testing purposes
-  // }
+    System.out.println("X: " + x + " / Y: " + y); // for testing purposes
+  }
 
-  
-  // I split up gewtting the row and col coordinates so we could use the return values in the main
-  // method I couldn't figure out ho to do it from the takeInput method. Feel free to deletes these
-  // if you know how/ had something else in mind
-
-  // we can go with these, it makes things easier.
-
+  /*
+  I split up gewtting the row and col coordinates so we could use the return values in the main
+  method I couldn't figure out ho to do it from the takeInput method. Feel free to deletes these
+  if you know how/ had something else in mind
+    */
   public static int getRow(String player1, String player2, char marker) {
 	System.out.println("");
 	Scanner sc = new Scanner(System.in);
@@ -178,6 +177,16 @@ public class Main {
 
 	return col;
   }
-  
 
+  public static boolean rematch() {
+    boolean rematch = true;
+    System.out.println("");
+    System.out.println("Would you like to play again? Enter Y or N\n");
+    Scanner sc = new Scanner(System.in);
+    if (sc.next().equalsIgnoreCase("Y")) {
+      rematch = true;
+    } else rematch = false;
+
+    return rematch;
+  }
 }
