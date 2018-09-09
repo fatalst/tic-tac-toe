@@ -4,18 +4,18 @@ import java.util.*;
 
 public class UI {
 
-	private char[][] gameBoard;
-	private char currentPlayerMark;
+  private char[][] gameBoard;
+  private char currentPlayerMark;
 
-	public UI() {
-		gameBoard = new char[3][3]; // declare 2d array gameBoard of size 3x3
-		currentPlayerMark = 'X'; // makes player1 X
-		createBoard();
-	}
+  public UI() {
+    gameBoard = new char[3][3]; // declare 2d array gameBoard of size 3x3
+    currentPlayerMark = 'X'; // makes player1 X
+    createBoard();
+  }
 
-	public void reset(){
-		currentPlayerMark = 'X'; // makes player1 X
-	}
+  public void reset() {
+    currentPlayerMark = 'X'; // makes player1 X
+  }
 
   public void createBoard() {
     for (int i = 2; i >= 0; i--) { // loops through rows
@@ -30,7 +30,7 @@ public class UI {
     int num = 2;
     System.out.println("");
     System.out.println(
-        ". 0. . 1 . . 2"); // adding coordinates to the top. '.'s are placeholders for whitespace.
+        ". 0 . . 1 . . 2"); // adding coordinates to the top. '.'s are placeholders for whitespace.
     System.out.println(". -------------"); // creates top boarder
     for (int i = 2; i >= 0; i--) {
       System.out.print(num + " | "); // creates left boarder
@@ -44,25 +44,25 @@ public class UI {
     }
   }
 
-	public void changePlayer() {
-		// changes to currentPlayerMark after every turn
-		if (currentPlayerMark == 'X') {
-			currentPlayerMark = 'O';
-		} else {
-			currentPlayerMark = 'X';
-		}
-	}
+  public void changePlayer() {
+    // changes to currentPlayerMark after every turn
+    if (currentPlayerMark == 'X') {
+      currentPlayerMark = 'O';
+    } else {
+      currentPlayerMark = 'X';
+    }
+  }
 
-	public char getPlayerMarker() {
-		// to help keep track of whose turn it is, gets CurrentPlayerMark w/o changing anything
-		char marker = ' ';
-		if (currentPlayerMark == 'X') {
-			marker = 'X';
-		} else {
-			marker = 'O';
-		}
-		return marker;
-	}
+  public char getPlayerMarker() {
+    // to help keep track of whose turn it is, gets CurrentPlayerMark w/o changing anything
+    char marker = ' ';
+    if (currentPlayerMark == 'X') {
+      marker = 'X';
+    } else {
+      marker = 'O';
+    }
+    return marker;
+  }
 
   public boolean placeMark(int row, int col) {
     // places the playing marks in their desired coordinates
@@ -77,55 +77,54 @@ public class UI {
     }
     return false;
   }
+  // checking the endings. unfinished.
+  public int checkEnding(){
+    int xCount = 0;
+    int oCount = 0;
 
-	// checking the endings. unfinished.
-	public int checkEnding(){
-		int xCount = 0;
-		int oCount = 0;
+    // checking rows
+    for(int i = 0; i < 3; i++){
+      for (int j = 0; j < 3; j++) {
+        if(gameBoard[i][j] == 'X'){
+          xCount++;
+        } else if (gameBoard[i][j] == 'O'){
+          oCount++;
+        }
+      }
+      if(xCount == 3 || oCount == 3){
+        return winnerPlayer(xCount, oCount);
+      }
+    }
 
-		// checking rows
-		for(int i = 0; i < 3; i++){
-			for (int j = 0; j < 3; j++) {
-				if(gameBoard[i][j] == 'X'){
-					xCount++;
-				} else if (gameBoard[i][j] == 'O'){
-					oCount++;
-				}
-			}
-			if(xCount == 3 || oCount == 3){
-				return winnerPlayer(xCount, oCount);
-			}
-		}
+    xCount = 0;
+    oCount = 0;
 
-		xCount = 0;
-		oCount = 0;
+    // checking columns
+    for(int i = 0; i < 3; i++){
+      for (int j = 0; j < 3; j++) {
+        if(gameBoard[j][i] == 'X'){
+          xCount++;
+        } else if (gameBoard[j][i] == 'O'){
+          oCount++;
+        }
+      }
+      if(xCount == 3 || oCount == 3){
+        return winnerPlayer(xCount, oCount);
+      }
+    }
 
-		// checking columns
-		for(int i = 0; i < 3; i++){
-			for (int j = 0; j < 3; j++) {
-				if(gameBoard[j][i] == 'X'){
-					xCount++;
-				} else if (gameBoard[j][i] == 'O'){
-					oCount++;
-				}
-			}
-			if(xCount == 3 || oCount == 3){
-				return winnerPlayer(xCount, oCount);
-			}
-		}
+    return 0;
 
-		return 0;
+  }
 
-	}
-
-	public int winnerPlayer(int xCount, int oCount){
-		if(xCount == 3){
-			return 1; // return that player 1 has won
-		} else if(oCount == 3){
-			return 2; // return that player 2 has won
-		} else{
-			return 0;
-		}
-	}
+  public int winnerPlayer(int xCount, int oCount){
+    if(xCount == 3){
+      return 1; // return that player 1 has won
+    } else if(oCount == 3){
+      return 2; // return that player 2 has won
+    } else{
+      return 0;
+    }
+  }
 
 }
