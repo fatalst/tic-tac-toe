@@ -7,14 +7,19 @@ public class Main {
 
 	private static int rounds; // integer to count the number of rounds
 	private static boolean game; // boolean tracking if the game is currently being played or not(used for looping)
-	private static boolean p1_playing;//using a boolean to track which player's turn it is(player 1 = true, player 2 = false)
+	private static int numGames = 1;
 
-	private static String player1;
-	private static String player2;
+	private static String player1; // holding player 1's username
+	private static String player2; // holding player 2's username
+
+	private static int p1Score = 0; // holding player 1's score
+	private static int p2Score = 0; // holding player 2's score
+
 	private static UI ui = new UI(); // creates new UI object
 
 	public static void main(final String[] args) throws InterruptedException {
 		Scanner sc = new Scanner(System.in); // opens scanner for user input
+		Main.spaces();
 		Main.getPlayerInfo();
 		Main.startGame();
 		boolean validResponse;
@@ -27,6 +32,7 @@ public class Main {
 
 				int row = Main.getRow(player1, player2, marker);
 				int col = Main.getCol(player1, player2, marker);
+				System.out.println("");
 				System.out.println(
 					"Your coordinates are: " + row + ", " + col); // mostly for testing but could keep in
 
@@ -42,23 +48,17 @@ public class Main {
 
 				rounds++;
 
-				// TODO check for winner, if winner game == false to quit game
-				// String winner = "";
-				// if (ui.checkEnding() > 0) {
-				// 	game = false;
-				// 	if (ui.checkEnding() == 1) {
-				// 		System.out.println(player1 + " wins!");
-				// 	} else {
-				// 		System.out.println(player2 + " wins!");
-				// 	}
-				// }
-
+				// checks to see if there is a winner by calling checkEnding()
 				if(rounds >= 5) {
 					if(ui.checkEnding('X') == true) {
+						System.out.println("");
 						System.out.println(player1 + " wins!");
+						p1Score++;
 						game = false;
 					} else if(ui.checkEnding('O')) {
+						System.out.println("");
 						System.out.println(player2 + " wins!");
+						p2Score++;
 						game = false;
 					}
 				// assuming wrong answers are impossible AND if someone wins, the game ends -- ends the game on a draw.
@@ -71,11 +71,23 @@ public class Main {
 				ui.changePlayer(); // alternate turn and player mark
 			} while (game == true);
 
+			System.out.println("");
+			System.out.println("Number of games played: " + numGames);
+
+			System.out.println("");
+			System.out.println(player1 + "'s score: " + p1Score);
+			System.out.println(player2 + "'s score: " + p2Score);
+
+			System.out.println("");
 			System.out.println("Play again? (Y/N)");
 			String response = sc.nextLine();
+
+			// checking player input, seeing if they would like to rematch
 			if (response.equalsIgnoreCase("Y")) {
 				rematch = true;
+				numGames++;
 				ui.reset();
+				Main.spaces();
 				Main.startGame();
 			} else rematch = false;
 		} while(rematch == true);
@@ -97,9 +109,6 @@ public class Main {
 		player2 = Main.getPlayerTwo(player2); // sets player2 to the second players specified username
 		game =
 			true; // boolean tracking if the game is currently being played or not (used for looping)
-		p1_playing =
-			true; // using a boolean to track which player's turn it is (player 1 = true, player 2 =
-		// false)
 		System.out.println("");
 		System.out.println(player1 + ", you are Xs.");
 		System.out.println(player2 + ", you are Os.");
@@ -153,5 +162,22 @@ public class Main {
 		int col = Integer.parseInt(sc.nextLine()); // sets y coordinate to player input
 
 		return col;
+	}
+
+	public static void spaces(){
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
 	}
 }

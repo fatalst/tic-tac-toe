@@ -81,24 +81,33 @@ public class UI {
 	// checking for a winner
 	public boolean checkEnding(char mark) {
 
-		if(gameBoard[0][0] == mark && gameBoard[0][1] == mark && gameBoard[0][2] == mark) { //checking top row
+		// checking evey possible win state for the game
+		if(gameBoard[0][0] == mark && gameBoard[0][1] == mark && gameBoard[0][2] == mark) {
+			//checking top row
 			return true;
-		} else if(gameBoard[1][0] == mark && gameBoard[1][1] == mark && gameBoard[1][2] == mark) { // checking middle row
+		} else if(gameBoard[1][0] == mark && gameBoard[1][1] == mark && gameBoard[1][2] == mark) {
+			// checking middle row
 			return true;
-		} else if(gameBoard[2][0] == mark && gameBoard[2][1] == mark && gameBoard[2][2] == mark) { // checking bottom row
+		} else if(gameBoard[2][0] == mark && gameBoard[2][1] == mark && gameBoard[2][2] == mark) {
+			// checking bottom row
 			return true;
-		} else if(gameBoard[0][0] == mark && gameBoard[1][0] == mark && gameBoard[2][0] == mark) { // checking first column
+		} else if(gameBoard[0][0] == mark && gameBoard[1][0] == mark && gameBoard[2][0] == mark) {
+			// checking first column
 			return true;
-		} else if(gameBoard[0][1] == mark && gameBoard[1][1] == mark && gameBoard[2][1] == mark) { // checking middle column
+		} else if(gameBoard[0][1] == mark && gameBoard[1][1] == mark && gameBoard[2][1] == mark) {
+			// checking middle column
 			return true;
-		} else if(gameBoard[0][2] == mark && gameBoard[1][2] == mark && gameBoard[2][2] == mark) { // checking last column
+		} else if(gameBoard[0][2] == mark && gameBoard[1][2] == mark && gameBoard[2][2] == mark) {
+			// checking last column
 			return true;
-		} else if(gameBoard[2][0] == mark && gameBoard[1][1] == mark && gameBoard[0][2] == mark) { // checking left to right diagonal
+		} else if(gameBoard[2][0] == mark && gameBoard[1][1] == mark && gameBoard[0][2] == mark) {
+			// checking left to right diagonal
 			return true;
-		} else if(gameBoard[2][2] == mark && gameBoard[1][1] == mark && gameBoard[0][0] == mark) { // checking right to left diagonal
+		} else if(gameBoard[2][2] == mark && gameBoard[1][1] == mark && gameBoard[0][0] == mark) {
+			// checking right to left diagonal
 			return true;
 		} else {
-			System.out.println("FALSE");
+			// returns false if no one has won
 			return false;
 		}
 
