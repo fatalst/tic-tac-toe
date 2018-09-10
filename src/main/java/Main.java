@@ -89,6 +89,10 @@ public class Main {
 				ui.reset();
 				Main.spaces();
 				Main.startGame();
+				if(p1Score >= p2Score){
+                  ui.changePlayer(); //Let's player with lowest score start game
+                                     //if tied score, winner of last game goes first
+                }
 			} else rematch = false;
 		} while(rematch == true);
 	}
