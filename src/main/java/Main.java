@@ -53,15 +53,13 @@ public class Main {
 				// 	}
 				// }
 
-				if(rounds == 5) {
-					if(ui.checkEnding() == true) {
-						if(ui.getPlayerMarker() == 'X') {
-							System.out.println(player1 + " wins!");
-							game = false;
-						} else if(ui.getPlayerMarker() == 'O') {
-							System.out.println(player2 + " wins!");
-							game = false;
-						}
+				if(rounds >= 5) {
+					if(ui.checkEnding('X') == true) {
+						System.out.println(player1 + " wins!");
+						game = false;
+					} else if(ui.checkEnding('O')) {
+						System.out.println(player2 + " wins!");
+						game = false;
 					}
 				// assuming wrong answers are impossible AND if someone wins, the game ends -- ends the game on a draw.
 				} else if (rounds == 9) {

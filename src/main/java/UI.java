@@ -79,9 +79,7 @@ public class UI {
 	}
 
 	// checking for a winner
-	public boolean checkEnding() {
-
-		char mark = currentPlayerMark;
+	public boolean checkEnding(char mark) {
 
 		if(gameBoard[0][0] == mark && gameBoard[0][1] == mark && gameBoard[0][2] == mark) { //checking top row
 			return true;
@@ -97,9 +95,9 @@ public class UI {
 			return true;
 		} else if(gameBoard[2][0] == mark && gameBoard[1][1] == mark && gameBoard[0][2] == mark) { // checking left to right diagonal
 			return true;
-		} else if(gameBoard[2][2] == mark && gameBoard[1][1] == mark && gameBoard[0][0] == mark) { // checking first column
+		} else if(gameBoard[2][2] == mark && gameBoard[1][1] == mark && gameBoard[0][0] == mark) { // checking right to left diagonal
 			return true;
-		} else{
+		} else {
 			System.out.println("FALSE");
 			return false;
 		}
